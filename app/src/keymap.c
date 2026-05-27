@@ -314,6 +314,28 @@ int zmk_keymap_set_layer_binding_at_idx(zmk_keymap_layer_id_t layer_id, uint8_t 
 }
 
 #endif // IS_ENABLED(CONFIG_ZMK_KEYMAP_SETTINGS_STORAGE)
+
+#if ZMK_KEYMAP_HAS_SENSORS
+
+const struct zmk_behavior_binding *zmk_keymap_get_layer_sensor_binding_at_idx(
+    zmk_keymap_layer_id_t layer_id, uint8_t sensor_idx) {
+    if (layer_id >= ZMK_KEYMAP_LAYERS_LEN || sensor_idx >= ZMK_KEYMAP_SENSORS_LEN) {
+        return NULL;
+    }
+    return &zmk_sensor_keymap[layer_id][sensor_idx];
+}
+
+int zmk_keymap_set_layer_sensor_binding_at_idx(zmk_keymap_layer_id_t layer_id, uint8_t sensor_idx,
+                                               const struct zmk_behavior_binding binding) {
+    if (layer_id >= ZMK_KEYMAP_LAYERS_LEN || sensor_idx >= ZMK_KEYMAP_SENSORS_LEN) {
+        return -EINVAL;
+    }
+    zmk_sensor_keymap[layer_id][sensor_idx] = binding;
+    return 0;
+}
+
+#endif /* ZMK_KEYMAP_HAS_SENSORS */
+
 #if IS_ENABLED(CONFIG_ZMK_KEYMAP_LAYER_REORDERING)
 
 #if IS_ENABLED(CONFIG_ZMK_KEYMAP_SETTINGS_STORAGE)
