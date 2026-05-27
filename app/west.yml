@@ -4,8 +4,8 @@ manifest:
       url-base: https://github.com/zephyrproject-rtos
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: cormoran
-      url-base: https://github.com/cormoran
+    - name: zaiwalinus
+      url-base: https://github.com/Zaiwa-linus
   projects:
     - name: zephyr
       remote: zmkfirmware
@@ -36,9 +36,9 @@ manifest:
       path: modules/lib/nanopb
       remote: zmkfirmware
     - name: zmk-studio-messages
-      # custom-studio-protocol
-      remote: cormoran
-      revision: 89b81d2e587fce807b668dff2a6967a40beef421
+      # custom-studio-protocol (cherry-pick from cormoran/zmk-studio-messages 89b81d2)
+      remote: zaiwalinus
+      revision: v0.3+custom-proto
       path: modules/msgs/zmk-studio-messages
   self:
     west-commands: scripts/west-commands.yml
