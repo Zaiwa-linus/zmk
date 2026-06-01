@@ -7,6 +7,7 @@
 #pragma once
 
 #include <zmk/events/position_state_changed.h>
+#include <zmk/sensors.h>
 
 #define ZMK_LAYER_CHILD_LEN_PLUS_ONE(node) 1 +
 #define ZMK_KEYMAP_LAYERS_LEN                                                                      \
