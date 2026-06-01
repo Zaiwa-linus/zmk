@@ -1,0 +1,19 @@
+# Copyright (c) 2024 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: Transparent Sensor Binding Behavior
+
+compatible: "zmk,behavior-sensor-transparent"
+
+properties:
+  label:
+    type: string
+    required: false
+    deprecated: true
+  "#sensor-binding-cells":
+    type: int
+    required: true
+    const: 0
+  display-name:
+    type: string
+    required: false
